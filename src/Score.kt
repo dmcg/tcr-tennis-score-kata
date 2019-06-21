@@ -16,7 +16,7 @@ data class Score(private val p1: Int, private val p2: Int) : Game() {
     fun p2WinsPoint(): Game = copy(p2 = p2 + 1).resolved()
 
     private fun resolved(): Game = when {
-        p1 == 4 && p2 < 3 -> Win(p1, p2)
+        p1 >= 4 && p1 - p2 >= 2 -> Win(p1, p2)
         p2 == 4 && p1 < 3 -> Win(p1, p2)
         else -> this
     }
