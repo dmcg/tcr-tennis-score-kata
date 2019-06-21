@@ -1,4 +1,4 @@
-class Score(private val p1: Int, private val p2: Int) {
+data class Score(private val p1: Int, private val p2: Int) {
     override fun toString(): String = when {
         p1 == p2 && p1 >= 3-> "deuce"
         p1 == p2 -> "${p1.toTennis()} all"
@@ -6,6 +6,8 @@ class Score(private val p1: Int, private val p2: Int) {
         p2 >= 4 && p1 == p2 - 1 -> "advantage player 2"
         else -> "${p1.toTennis()} ${p2.toTennis()}"
     }
+
+    fun p1WinsPoint(): Score = copy(p1 = p1 + 1)
 }
 
 private fun Int.toTennis() = when (this) {

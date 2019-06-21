@@ -51,5 +51,9 @@ class TennisScoreTests {
         assertEquals("advantage player 2", Score(4, 5).toString())
     }
 
+    @Test fun `player 1 score increment`() {
+        assertEquals(Score(1, 0), Score(0, 0).p1WinsPoint())
+    }
+
 }
 
