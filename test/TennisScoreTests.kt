@@ -26,5 +26,9 @@ class TennisScoreTests {
     @Test fun `3 - 0 is 40 love`() {
         assertEquals("40 love", Score(3, 0).toString())
     }
+
+    @Test fun `3 - 3 is deuce`() {
+        assertEquals("deuce", Score(3, 3).toString())
+    }
 }
 
