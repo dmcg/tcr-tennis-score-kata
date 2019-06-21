@@ -38,5 +38,9 @@ class TennisScoreTests {
     @Test fun `3 - 4 is advantage player 2`() {
         assertEquals("advantage player 2", Score(3, 4).toString())
     }
+
+    @Test fun `4 - 4 is deuce`() {
+        assertEquals("deuce", Score(4, 4).toString())
+    }
 }
 
