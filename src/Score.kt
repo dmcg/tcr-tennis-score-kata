@@ -8,6 +8,8 @@ data class Score(private val p1: Int, private val p2: Int) {
     }
 
     fun p1WinsPoint(): Score = copy(p1 = p1 + 1)
+
+    fun p2WinsPoint(): Score = copy(p2 = p2 + 1)
 }
 
 private fun Int.toTennis() = when (this) {
