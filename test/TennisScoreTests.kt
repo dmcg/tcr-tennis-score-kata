@@ -86,5 +86,9 @@ class TennisScoreTests {
         assertEquals(Win(3, 5), Score(3, 4).p2WinsPoint())
         assertEquals(Win(4, 6), Score(4, 5).p2WinsPoint())
     }
+
+    @Test fun `can create a new game`() {
+        assertEquals(Score(0, 0), Game())
+    }
 }
 

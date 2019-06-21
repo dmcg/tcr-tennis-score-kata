@@ -1,5 +1,7 @@
 sealed class Game {
-
+    companion object : () -> Score {
+        override fun invoke() = Score(0, 0)
+    }
 }
 
 data class Score(private val p1: Int, private val p2: Int) : Game() {
