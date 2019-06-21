@@ -1,4 +1,8 @@
-data class Score(private val p1: Int, private val p2: Int) {
+sealed class Game {
+
+}
+
+data class Score(private val p1: Int, private val p2: Int) : Game() {
     override fun toString(): String = when {
         p1 == p2 && p1 >= 3-> "deuce"
         p1 == p2 -> "${p1.toTennis()} all"
@@ -7,10 +11,15 @@ data class Score(private val p1: Int, private val p2: Int) {
         else -> "${p1.toTennis()} ${p2.toTennis()}"
     }
 
-    fun p1WinsPoint(): Score = copy(p1 = p1 + 1)
+    fun p1WinsPoint(): Game = copy(p1 = p1 + 1).resolved()
 
     fun p2WinsPoint(): Score = copy(p2 = p2 + 1)
+
+    private fun resolved(): Game = if (p1 == 4) Win(p1, p2) else this
+
 }
+
+data class Win(private val p1: Int, private val p2: Int) : Game()
 
 private fun Int.toTennis() = when (this) {
     0 -> "love"
