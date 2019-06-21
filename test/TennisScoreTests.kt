@@ -81,5 +81,10 @@ class TennisScoreTests {
         assertEquals(Win(5, 3), Score(4, 3).p1WinsPoint())
         assertEquals(Win(6, 4), Score(5, 4).p1WinsPoint())
     }
+
+    @Test fun `player 2 wins on advantage`() {
+        assertEquals(Win(3, 5), Score(3, 4).p2WinsPoint())
+        assertEquals(Win(4, 6), Score(4, 5).p2WinsPoint())
+    }
 }
 
