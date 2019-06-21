@@ -69,6 +69,7 @@ class TennisScoreTests {
 
     @Test fun `cannot win from deuce`() {
         assertEquals(Score(4, 3), Score(3, 3).p1WinsPoint())
+        assertEquals(Score(5, 4), Score(4, 4).p1WinsPoint())
     }
 
 }
