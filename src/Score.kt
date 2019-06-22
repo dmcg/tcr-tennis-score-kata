@@ -1,4 +1,5 @@
 sealed class Game {
+
     companion object : () -> Score {
         override fun invoke() = Score(0, 0)
     }
@@ -23,6 +24,12 @@ data class Score(private val p1: Int, private val p2: Int) : Game() {
         else -> this
     }
 
+    fun apply(ops: Sequence<(Score) -> Game>): Sequence<Game> = sequence {
+        yield(this@Score)
+        ops.forEach {
+            yield(it(this@Score))
+        }
+    }
 }
 
 data class Win(private val p1: Int, private val p2: Int) : Game()

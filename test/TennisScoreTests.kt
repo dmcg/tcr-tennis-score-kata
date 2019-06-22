@@ -90,5 +90,13 @@ class TennisScoreTests {
     @Test fun `can create a new game`() {
         assertEquals(Score(0, 0), Game())
     }
+
+    @Test fun `can apply a sequence of plays`() {
+        val plays = sequenceOf(Score::p1WinsPoint)
+
+        val states = Game().apply(plays)
+
+        assertEquals(listOf(Score(0, 0), Score(1, 0)), states.toList())
+    }
 }
 
