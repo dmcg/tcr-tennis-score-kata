@@ -26,13 +26,20 @@ data class Score(private val p1: Int, private val p2: Int) : Game() {
 
     fun apply(ops: Sequence<(Score) -> Game>): Sequence<Game> = sequence {
         yield(this@Score)
+        var current: Game = this@Score
         ops.forEach {
-            yield(it(this@Score))
+            current = it(current as Score)
+            yield(current)
         }
     }
 }
 
-data class Win(private val p1: Int, private val p2: Int) : Game()
+data class Win(private val p1: Int, private val p2: Int) : Game() {
+    init {
+        require(p1 != p2)
+    }
+    override fun toString() = if (p1 > p2) "player1 wins" else "player2 wins"
+}
 
 private fun Int.toTennis() = when (this) {
     0 -> "love"
