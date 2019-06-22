@@ -94,9 +94,7 @@ class TennisScoreTests {
     @Test fun `can apply a sequence of plays`() {
         val plays = sequenceOf(Score::p1WinsPoint)
 
-        val states = Game().apply(plays)
-
-        assertEquals(listOf(Score(0, 0), Score(1, 0)), states.toList())
+        assertEquals(listOf(Score(0, 0), Score(1, 0)), Game().apply(plays).toList())
     }
 }
 
