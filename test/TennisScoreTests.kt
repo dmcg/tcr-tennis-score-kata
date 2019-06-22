@@ -140,6 +140,7 @@ class TennisScoreTests {
             Score::p1WinsPoint,
             Score::p2WinsPoint,
             Score::p2WinsPoint,
+            Score::p2WinsPoint,
             Score::p2WinsPoint
         )
 
@@ -151,7 +152,8 @@ class TennisScoreTests {
                 "40 love",
                 "40 15",
                 "40 30",
-                "deuce"
+                "deuce",
+                "advantage player 2"
             ),
             Game().apply(plays).toList().map(Game::toString)
         )
