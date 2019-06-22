@@ -132,5 +132,25 @@ class TennisScoreTests {
             Game().apply(plays).toList().map(Game::toString)
         )
     }
+
+    @Test fun `shall we play a game?`() {
+        val plays = sequenceOf(
+            Score::p1WinsPoint,
+            Score::p1WinsPoint,
+            Score::p1WinsPoint,
+            Score::p2WinsPoint
+        )
+
+        assertEquals(
+            listOf(
+                "love all",
+                "15 love",
+                "30 love",
+                "40 love",
+                "40 15"
+            ),
+            Game().apply(plays).toList().map(Game::toString)
+        )
+    }
 }
 
