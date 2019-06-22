@@ -105,7 +105,7 @@ class TennisScoreTests {
                 "15 love",
                 "30 love",
                 "40 love",
-                "player1 wins"
+                "player 1 wins"
             ),
             Game().apply(plays).toList().map(Game::toString)
         )
@@ -126,8 +126,8 @@ class TennisScoreTests {
                 "15 love",
                 "30 love",
                 "40 love",
-                "player1 wins",
-                "player1 wins"
+                "player 1 wins",
+                "player 1 wins"
             ),
             Game().apply(plays).toList().map(Game::toString)
         )
@@ -141,7 +141,10 @@ class TennisScoreTests {
             Score::p2WinsPoint,
             Score::p2WinsPoint,
             Score::p2WinsPoint,
-            Score::p2WinsPoint
+            Score::p2WinsPoint,
+            Score::p1WinsPoint,
+            Score::p1WinsPoint,
+            Score::p1WinsPoint
         )
 
         assertEquals(
@@ -153,7 +156,10 @@ class TennisScoreTests {
                 "40 15",
                 "40 30",
                 "deuce",
-                "advantage player 2"
+                "advantage player 2",
+                "deuce",
+                "advantage player 1",
+                "player 1 wins"
             ),
             Game().apply(plays).toList().map(Game::toString)
         )

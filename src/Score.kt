@@ -38,7 +38,7 @@ data class Win(private val p1: Int, private val p2: Int) : Game() {
     init {
         require(p1 != p2)
     }
-    override fun toString() = if (p1 > p2) "player1 wins" else "player2 wins"
+    override fun toString() = if (p1 > p2) "player 1 wins" else "player 2 wins"
 }
 
 private fun Int.toTennis() = when (this) {
