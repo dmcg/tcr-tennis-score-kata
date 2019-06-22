@@ -25,10 +25,10 @@ data class Score(private val p1: Int, private val p2: Int) : Game() {
     }
 
     fun apply(ops: Sequence<(Score) -> Game>): Sequence<Game> = sequence {
-        yield(this@Score)
         var current: Game = this@Score
-        ops.forEach {
-            current = it(current as Score)
+        yield(current)
+        ops.forEach { op ->
+            current = (current as? Score)?.let { op(it) } ?: current
             yield(current)
         }
     }

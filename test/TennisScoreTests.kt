@@ -110,5 +110,27 @@ class TennisScoreTests {
             Game().apply(plays).toList().map(Game::toString)
         )
     }
+
+    @Test fun `applying plays after a win just repeats win`() {
+        val plays = sequenceOf(
+            Score::p1WinsPoint,
+            Score::p1WinsPoint,
+            Score::p1WinsPoint,
+            Score::p1WinsPoint,
+            Score::p1WinsPoint
+        )
+
+        assertEquals(
+            listOf(
+                "love all",
+                "15 love",
+                "30 love",
+                "40 love",
+                "player1 wins",
+                "player1 wins"
+            ),
+            Game().apply(plays).toList().map(Game::toString)
+        )
+    }
 }
 
